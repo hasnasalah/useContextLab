@@ -1,9 +1,9 @@
-import { FilterContext } from "../context/FilterContext";
+import FilterContext from "../context/FilterContext";
 import {useState} from "react";
 
 
 
-export function FilterProvider({children}) {
+export default function FilterProvider({children}) {
 const[filter,setFilter]=useState("all");
 
 const changeFilter = (newFilter) => {
@@ -12,9 +12,9 @@ const changeFilter = (newFilter) => {
 
     return(
 
-     <FilterContext.Provider value={{filter,changeFilter}}>
-   {children}
-</FilterContext.Provider>
+     <FilterContext.Provider value={{filter,setFilter,changeFilter}}>
+    {children}
+   </FilterContext.Provider>
     
 
     );
